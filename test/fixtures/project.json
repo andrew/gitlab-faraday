@@ -1,0 +1,7 @@
+{
+  "id": 1,
+  "name": "Diaspora",
+  "path": "diaspora",
+  "description": "A social network project",
+  "web_url": "https://gitlab.example.com/diaspora/diaspora"
+}

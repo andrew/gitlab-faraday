@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "Diaspora",
+    "path": "diaspora"
+  },
+  {
+    "id": 2,
+    "name": "GitLab",
+    "path": "gitlab"
+  }
+]

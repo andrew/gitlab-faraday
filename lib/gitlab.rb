@@ -1,0 +1,36 @@
+# frozen_string_literal: true
+
+require 'gitlab/version'
+require 'gitlab/objectified_hash'
+require 'gitlab/configuration'
+require 'gitlab/error'
+require 'gitlab/headers/page_links'
+require 'gitlab/headers/total'
+require 'gitlab/paginated_response'
+require 'gitlab/file_response'
+require 'gitlab/request'
+require 'gitlab/api'
+require 'gitlab/client'
+
+module Gitlab
+  extend Configuration
+
+  def self.client(options = {})
+    Gitlab::Client.new(options)
+  end
+
+  def self.method_missing(method, *, **keywargs, &)
+    return super unless client.respond_to?(method)
+
+    client.send(method, *, **keywargs, &)
+  end
+
+  def self.respond_to_missing?(method_name, include_private = false)
+    client.respond_to?(method_name) || super
+  end
+
+  def self.actions
+    hidden = /endpoint|private_token|auth_token|user_agent|sudo|get|post|put|patch|\Adelete\z|validate\z|request_defaults/
+    (Gitlab::Client.instance_methods - Object.methods).reject { |e| e[hidden] }
+  end
+end

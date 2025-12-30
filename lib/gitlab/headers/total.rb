@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+module Gitlab
+  module Headers
+    class Total
+      HEADER_TOTAL = 'x-total'
+      TOTAL_REGEX = /^\d+$/
+
+      attr_accessor :total
+
+      def initialize(headers)
+        header_total = headers[HEADER_TOTAL]
+
+        extract_total(header_total) if header_total
+      end
+
+      def extract_total(header_total)
+        TOTAL_REGEX.match(header_total.strip) do |match|
+          @total = match[0]
+        end
+      end
+    end
+  end
+end
