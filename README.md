@@ -9,13 +9,13 @@ Fork of [NARKOZ/gitlab](https://github.com/NARKOZ/gitlab) updated to use Faraday
 Add to your Gemfile:
 
 ```ruby
-gem 'gitlab'
+gem 'gitlab-faraday'
 ```
 
 Or install directly:
 
 ```bash
-gem install gitlab
+gem install gitlab-faraday
 ```
 
 ## Usage

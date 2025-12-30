@@ -3,7 +3,7 @@
 require_relative 'lib/gitlab/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'gitlab'
+  spec.name = 'gitlab-faraday'
   spec.version = Gitlab::VERSION
   spec.authors = ['Nihad Abbasov', 'Sean Edge']
   spec.email = ['mail@narkoz.me', 'asedge@gmail.com']
